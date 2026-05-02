@@ -1,0 +1,187 @@
+/* 🎮 PIXEL FONT */
+@font-face {
+  font-family: 'Pix32';
+  src: url(fonts/Pixel32.v1.9.7.ttf);
+}
+
+/* 🌄 BACKGROUND */
+body {
+  background-image: url("grassy_lands.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Pix32';
+  cursor: url("wooden-mallet\ \(1\).png") 16 16, pointer;
+}
+
+/* 🏠 MENU */
+.menu {
+  text-align: center;
+  color: white;
+}
+
+.menu h1 {
+  font-size: 200px;
+  color: black;
+}
+
+.menu button {
+  padding: 15px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: 'Pix32';
+}
+
+/* 📦 MAIN LAYOUT */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* 📋 SIDEBAR STACK */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 220px; /* Aligns everything neatly */
+}
+
+/* 🪵 GAME UI PANEL */
+.game-ui {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+
+  background-image: url("mole_dirt.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+.game-ui h2 {
+  margin: 5px 0;
+}
+
+/* ❤️ HEARTS */
+#lives-container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.heart {
+  width: 35px;
+  height: 35px;
+}
+
+.dead {
+  opacity: 0.3;
+}
+
+/* 🛠️ NEW SEPARATE CONTROL PANEL */
+.controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.6); /* Slightly dark background to separate it */
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid white;
+}
+
+.controls-panel button {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid black;
+  background-color: #f8f8f8;
+  font-family: 'Pix32';
+  font-size: 18px;
+  color: black;
+  transition: transform 0.1s, background-color 0.1s;
+}
+
+.controls-panel button:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.03);
+}
+
+.controls-panel button:active {
+  transform: scale(0.97);
+}
+
+/* 🟫 GRID */
+.grid {
+  width: 606px;
+  height: 606px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 🕳️ HOLE */
+.square {
+  height: 200px;
+  width: 200px;
+  border: 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🪨 DIRT (FRONT LAYER) */
+.square::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-image: url("dirt_pile.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 🐹 MOLE BASE */
+.square::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  bottom: -100%;
+  transition: bottom 0.25s ease-out;
+  z-index: 1;
+}
+
+/* 🐹 NORMAL MOLE */
+.mole::after {
+  background-image: url("mole.png");
+  bottom: 30px;
+}
+
+/* 🟡 GOLDEN MOLE */
+.golden_mole::after {
+  background-image: url("golden_mole.png");
+  bottom: 30px;
+}
+
+/* ⏰ TIME SLOW CLOCK */
+.clock::after {
+  background-image: url("clock.png");
+  bottom: 30px;
+}
