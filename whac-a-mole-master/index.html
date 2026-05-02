@@ -11,6 +11,7 @@
     <h1>Whack-a-Mole</h1>
     <button onclick="startGame('classic')">Classic Mode</button>
     <button onclick="startGame('challenge')">Challenge Mode</button>
+    <button onclick="openTutorial()">Game Mechanics</button>
   </div>
 
   <div id="game" class="container" style="display: none;">
@@ -31,6 +32,7 @@
       <div class="controls-panel">
         <button id="btn-pause" onclick="pauseGame()">Pause</button>
         <button id="btn-resume" onclick="resumeGame()" style="display: none;">Resume</button>
+        <button id="btn-tutorial" onclick="openTutorial()">Mechanics</button>
         <button id="btn-restart" onclick="restartGame()">Restart</button>
         <button id="btn-exit" onclick="exitGame()">Exit</button>
       </div>
@@ -49,6 +51,36 @@
       <div class="square" id="9"></div>
     </div>
 
+  </div>
+
+  <div id="tutorial-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>How to Play & Mechanics</h2>
+      <hr>
+      <div class="modal-body">
+        <div class="tutorial-item">
+          <strong>🎮 Core Objective:</strong> Achieve the highest score possible by reacting quickly, hitting moles accurately, and managing your 3 lives.
+        </div>
+        <div class="tutorial-item">
+          <strong>🐹 Normal Mole:</strong> Appears frequently. Gives +1 point when clicked. Failing to hit it before it disappears costs you 1 life.
+        </div>
+        <div class="tutorial-item">
+          <strong>🟡 Golden Mole:</strong> Appears rarely and disappears faster. Hit it for +3 bonus points. No penalty if missed.
+        </div>
+        <div class="tutorial-item">
+          <strong>⚡ Modes & Scaling:</strong> 
+          <ul>
+            <li><strong>Classic Mode:</strong> Slower mole spawn rates for casual play.</li>
+            <li><strong>Challenge Mode:</strong> Faster spawns and shorter windows to test your reflexes.</li>
+          </ul>
+        </div>
+        <div class="tutorial-item">
+          <strong>🛑 Game Over:</strong> The game ends if the 60-second timer runs out or if you lose all your hearts.
+        </div>
+      </div>
+      <hr>
+      <button class="close-btn" onclick="closeTutorial()">Got it!</button>
+    </div>
   </div>
 
   <script src="New folder (2)/jquery-4.0.0.js"></script>

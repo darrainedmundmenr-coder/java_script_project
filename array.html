@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // var s = [2,4,6,8,9,11];
+        // var cta = ["Labrador" , "Llama", "Pagarigan", "Menor"];
+        // cta[4] = "Maldecino";
+        // // cta[3] = "";
+        // document.write(cta);
+
+        //function
+        // function greet(){
+        //     document.write("Hello, Wolrd!");
+        // }
+        // greet();
+
+
+        // function greetPerson (name){
+        //     document.write("Hello, "+ name + "!");
+        // }
+        // greetPerson("Alice");
+        // greetPerson("Bob");
+
+        // function add (a,b){
+        //     return a + b;
+        // }
+        // let result = add (5,3);
+        // document.write(result);
+
+
+        // function computeGrade(name, midtterm, final){
+        //     var average = (midtterm + finals) / 2;
+        //     document.write("Student Name: " + name+ "<br>")
+        //     document.write("Student Name: " + name+ "<br>")
+        //     document.write("Student Name: " + name+ "<br>")
+        //     document.write("Student Name: " + name+ "<br>")
+        // }
+        // computeGrade();
+        // computeGrade();
+
+
+
+
+        // function computeArea (length , width) {
+        //     var area = length * width;
+        //     document.write("Area of Rectangle: " + area + "<br>")
+        // }
+        // var l = parseFloat(prompt("Enter length: "));
+        // var w = parseFloat(prompt("Enter width: ")); 
+        // computeArea(l,w);
+
+
+        // function checkResult(name , grade){
+        //     var status;
+        //     if (grade >= 75){
+        //         status = "PASSED";
+        //     } else {
+        //         status = "FAILED";
+        //     }
+
+        //     document.write("Student: " + name + "<br>");
+        //     document.write("Status: " + status + "<br>");
+        // }
+        // var student = prompt("Enter Student name: ");
+        // var gradeInput = parseFloat(prompt("Enter gradew: "));
+        // checkResult(student , gradeInput);
+
+
+        // function computeTotal(numbers) {
+        //     var total = 0;
+        //     for (var i = 0; i < numbers.length; i++) {
+        //         total += numbers[i];
+        //     }
+
+        //     document.write("Numbers: " + numbers + "<br>");
+        //     document.write("Total: " + total + "<br>");
+        // }
+        // var nums = [];
+        // for (var i = 0; i < 5; i++) {
+        //     nums.push(parseFloat(prompt("Enter number: ")));
+        // }
+        // computeTotal(nums);
+
+
+
+
+        // function celsiusTofahrenheit(celsius, fahrenheit) {
+        //     var c = (fahrenheit - 32) * 5 / 9;
+        // }
+        // function fahrenheitTocelsius(celsius, fahrenheit) {
+        //     var f = (9 / 5 * celsius) + 32;
+        // }
+        // function kelvinTocelsius(kelvin, celsius) {
+        //     var k = celsius + 273.15;
+        // }
+
+        // document.write("Convert your temperatures here!")
+
+        // var ask = parseInt(prompt("Please enter an input [1-3]: "))
+
+        // if (ask == 1) {
+        //     celsiusTofahrenheit(celsius, fahrenheit)
+        // }
+
+        
+        // Functions to convert temperatures
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+
+function fahrenheitToCelsius(fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+function kelvinToCelsius(kelvin) {
+    return kelvin - 273.15;
+}
+
+// Prompt the user
+document.write("Convert your temperatures here!<br>");
+
+var ask = parseInt(prompt("Choose conversion:\n1 - Celsius to Fahrenheit\n2 - Fahrenheit to Celsius\n3 - Kelvin to Celsius"));
+
+if (ask == 1) {
+    var celsius = parseFloat(prompt("Enter temperature in Celsius:"));
+    var fahrenheit = celsiusToFahrenheit(celsius);
+    document.write(celsius + "°C = " + fahrenheit.toFixed(2) + "°F");
+} else if (ask == 2) {
+    var fahrenheit = parseFloat(prompt("Enter temperature in Fahrenheit:"));
+    var celsius = fahrenheitToCelsius(fahrenheit);
+    document.write(fahrenheit + "°F = " + celsius.toFixed(2) + "°C");
+} else if (ask == 3) {
+    var kelvin = parseFloat(prompt("Enter temperature in Kelvin:"));
+    var celsius = kelvinToCelsius(kelvin);
+    document.write(kelvin + "K = " + celsius.toFixed(2) + "°C");
+} else {
+    document.write("Invalid choice!");
+}
+    </script>
+
+
+
+
+</body>
+
+</html>

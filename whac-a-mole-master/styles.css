@@ -4,7 +4,7 @@
   src: url(fonts/Pixel32.v1.9.7.ttf);
 }
 
-/* 🌄 BACKGROUND */
+/* 🌄 BACKGROUND & DEFAULTS */
 body {
   background-image: url("grassy_lands.png");
   background-size: cover;
@@ -15,7 +15,12 @@ body {
   height: 100vh;
   margin: 0;
   font-family: 'Pix32';
-  cursor: url("wooden-mallet\ \(1\).png") 16 16, pointer;
+  cursor: url("wooden-mallet (1).png") 16 16, pointer;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 /* 🏠 MENU */
@@ -25,22 +30,26 @@ body {
 }
 
 .menu h1 {
-  font-size: 200px;
+  font-size: 120px;
   color: black;
+  margin-bottom: 20px;
 }
 
 .menu button {
-  padding: 15px;
+  padding: 15px 25px;
   margin: 10px;
   cursor: pointer;
   border-radius: 10px;
   font-family: 'Pix32';
+  font-size: 24px;
 }
 
-/* 📦 MAIN LAYOUT */
+/* 📦 MAIN LAYOUT (DESKTOP) */
 .container {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 40px;
 }
 
@@ -49,7 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 220px; /* Aligns everything neatly */
+  width: 220px;
 }
 
 /* 🪵 GAME UI PANEL */
@@ -59,18 +68,17 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-
   background-image: url("mole_dirt.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   padding: 12px 20px;
   border-radius: 12px;
 }
 
 .game-ui h2 {
   margin: 5px 0;
+  font-size: 24px;
 }
 
 /* ❤️ HEARTS */
@@ -89,12 +97,12 @@ body {
   opacity: 0.3;
 }
 
-/* 🛠️ NEW SEPARATE CONTROL PANEL */
+/* 🛠️ CONTROLS SIDEBAR */
 .controls-panel {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: rgba(0, 0, 0, 0.6); /* Slightly dark background to separate it */
+  background: rgba(0, 0, 0, 0.7);
   padding: 15px;
   border-radius: 12px;
   border: 2px solid white;
@@ -109,36 +117,33 @@ body {
   font-family: 'Pix32';
   font-size: 18px;
   color: black;
-  transition: transform 0.1s, background-color 0.1s;
+  width: 100%;
 }
 
 .controls-panel button:hover {
   background-color: #e0e0e0;
-  transform: scale(1.03);
-}
-
-.controls-panel button:active {
-  transform: scale(0.97);
 }
 
 /* 🟫 GRID */
 .grid {
   width: 606px;
   height: 606px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
 }
 
 /* 🕳️ HOLE */
 .square {
-  height: 200px;
-  width: 200px;
-  border: 1px transparent;
+  width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
+  border: 1px transparent;
 }
 
-/* 🪨 DIRT (FRONT LAYER) */
+/* 🪨 DIRT PILE BACKGROUND */
 .square::before {
   content: "";
   position: absolute;
@@ -154,7 +159,7 @@ body {
   pointer-events: none;
 }
 
-/* 🐹 MOLE BASE */
+/* 🐹 MOLE UNDERGROUND DEFAULT */
 .square::after {
   content: "";
   position: absolute;
@@ -168,20 +173,98 @@ body {
   z-index: 1;
 }
 
-/* 🐹 NORMAL MOLE */
+/* 🐹 ACTIVE STATE POSITIONING */
 .mole::after {
   background-image: url("mole.png");
-  bottom: 30px;
+  bottom: 15%;
 }
 
-/* 🟡 GOLDEN MOLE */
 .golden_mole::after {
   background-image: url("golden_mole.png");
-  bottom: 30px;
+  bottom: 15%;
 }
 
-/* ⏰ TIME SLOW CLOCK */
+/* ⏰ POWERUP CLOCK */
 .clock::after {
   background-image: url("clock.png");
-  bottom: 30px;
+  bottom: 15%;
+}
+
+/* 🛑 TUTORIAL MODAL OVERLAY */
+.modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #2D3748; /* Slate / Dark theme */
+  border: 3px solid white;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 550px;
+  width: 85%;
+  color: white;
+  text-align: left;
+  box-shadow: 0px 5px 25px rgba(0,0,0,0.6);
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin: 0 0 10px 0;
+  color: #ffeb3b;
+  font-size: 28px;
+}
+
+.modal-content hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 12px 0;
+}
+
+.modal-body {
+  max-height: 380px;
+  overflow-y: auto; /* Fallback for very small screens */
+}
+
+.tutorial-item {
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.tutorial-item ul {
+  margin: 5px 0 0 20px;
+  padding: 0;
+}
+
+.tutorial-item li {
+  margin-bottom: 3px;
+}
+
+.close-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #2b6cb0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Pix32';
+  font-size: 18px;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+  background-color: #3182ce;
 }

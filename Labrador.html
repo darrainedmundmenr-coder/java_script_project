@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = parseInt(prompt("Enter a P10: "));
+        var b = parseInt(prompt("Enter a P5: "));
+        var c = parseInt(prompt("Enter a P1: "));
+        var d = parseInt(prompt("Enter a P0.25: "));
+        var e = parseInt(prompt("Enter a P0.10: "));
+        var f = parseInt(prompt("Enter a P0.05: "));
+
+        var h = (a * 10) + (b * 5) + (c * 1) + (d * 0.25) + (e * 0.10) + (f * 0.05);
+
+        document.write("<p>P10: " + a + "<br>");
+        document.write("P5: " + b + "<br>");
+        document.write("P1: " + c + "<br>");
+        document.write("P0.25: " + d + "<br>");
+        document.write("P0.10: " + e + "<br>");
+        document.write("P0.05: " + f + "<br>");
+
+        document.write("Total Amount: " + h + "<br></p>");
+
+        document.write("<p><h1>Change: </h1></p>");
+
+        change = h;
+
+        var p1000 = Math.floor(change/1000);
+        change = change % 1000
+
+        var p500 = Math.floor(change/500);
+        change = change % 500
+        
+        var p200 = Math.floor(change/200);
+        change = change % 200
+        
+        var p100 = Math.floor(change/100);
+        change = change % 100
+        
+        var p50 = Math.floor(change/50);
+        change = change % 50
+        
+        var p20 = Math.floor(change/20);
+        change = change % 20
+        
+        var p10 = Math.floor(change/10);
+        change = change % 10
+
+        var p5 = Math.floor(change/5);
+        change = change % 5
+        
+        var p1 = Math.floor(change/1);
+
+        document.write("P1000 bill: " + p1000 + "<br>");
+        document.write("P500 bill: " + p500 + "<br>");
+        document.write("P200 bill: " + p200 + "<br>");
+        document.write("P100 bill: " + p100 + "<br>");
+        document.write("P50 bill: " + p50 + "<br>");
+        document.write("P20 bill: " + p20 + "<br>");
+        document.write("P10 bill: " + p10 + "<br>");
+        document.write("P5 bill: " + p5 + "<br>");
+        document.write("P1 bill: " + p1 + "<br>");
+    </script>
+</body>
+</html>

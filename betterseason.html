@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season Checker</title>
+</head>
+<body>
+    <script>
+        var monthInput = prompt("Enter the Month: ");
+        var month = monthInput.toUpperCase(); // For checking
+        var displayMonth = monthInput.charAt(0).toUpperCase() + monthInput.slice(1).toLowerCase();
+
+        var date = parseInt(prompt("Enter the Day: "));
+
+        // Check for invalid day
+        if (date < 1 || date > 31) {
+            document.write("Invalid Day. Please enter a number between 1 and 31.");
+        } else {
+            document.write("The Month is: " + displayMonth + "<br>");
+            document.write("The Day is: " + date + "<br>");
+
+            if ((month == "MARCH" && date >= 20 && date <= 31) || (month == "APRIL") || (month == "MAY") || (month == "JUNE" && date <= 20)) {
+                document.write("Season: Spring<br>");
+                document.write("Weather Description: Mild and Blooming<br>");
+                document.write("Recommended Activity: Gardening and Walking<br>");
+            } else if ((month == "JUNE" && date >= 21 && date <= 30) || (month == "JULY") || (month == "AUGUST") || (month == "SEPTEMBER" && date <= 22)) {
+                document.write("Season: Summer<br>");
+                document.write("Weather Description: Hot and Sunny<br>");
+                document.write("Recommended Activity: Swimming and Beach Trips<br>");
+            } else if ((month == "SEPTEMBER" && date >= 23 && date <= 30) || (month == "OCTOBER") || (month == "NOVEMBER") || (month == "DECEMBER" && date <= 21)) {
+                document.write("Season: Autumn<br>");
+                document.write("Weather Description: Cool and Windy<br>");
+                document.write("Recommended Activity: Hiking and Outdoor Sports<br>");
+            } else if ((month == "DECEMBER" && date >= 22 && date <= 31) || (month == "JANUARY") || (month == "FEBRUARY" && date <= 29) || (month == "MARCH" && date <= 19)) {
+                document.write("Season: Winter<br>");
+                document.write("Weather Description: Cold and Snowy<br>");
+                document.write("Recommended Activity: Staying Indoors, Reading, and Hot Drinks<br>");
+            } else {
+                document.write("Invalid Input. Please enter a valid Month and Day.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        var a = 4;
+        var b = 5;
+        var c = 27;
+        var d = 2;
+        var e = 9;
+        var g = 32;
+        p = ((a**3) * (b**4) /  ((2**3) * Math.sqrt(c)) )
+
+        document.write("The answer is:" + p)
+    </script>
+    <script>
+        var a = 4;
+        var b = 5;
+        var c = 27;
+        var d = 2;
+        var e = 9;
+        var g = 32;
+        c = ((5/9) * (d-g))
+
+        document.write("The answer is:" + c)
+    </script> -->
+
+    <!-- <script>
+        var a = parseInt(prompt("enter a number: "))
+        var b = parseInt(prompt("enter a number: "))
+        var c = parseInt(prompt("enter a number: "))
+        var z = a + b + c;
+        p = ((a**3) * (b**4) /  ((2**3) * Math.sqrt(c)) )
+
+
+        document.write("The answer is:" + z)
+
+
+        
+       
+    </script> -->
+
+    <script>
+        var tenp = parseInt(prompt("Enter number of 10 peso coin: "));
+        var fivep = parseInt(prompt("Enter number of 5 peso coin: "));
+        var onep = parseInt(prompt("Enter number of 1 peso coin: "));
+        var twentyfivec = parseInt(prompt("Enter number of 0.25 peso coin: "));
+        var tenc = parseInt(prompt("Enter number of 0.10 peso coin: "));
+        var fivec = parseInt(prompt("Enter number of 0.5 peso coin: "));
+        var totalamount = ((tenp*10)+(fivep*5)+(onep*1)+(twentyfivec*0.25)+(tenc*0.10)+(fivec*0.05));
+        document.write("Piggy bank coins: "+"<br>");
+        document.write("Number of 10 peso coin: "+tenp+"<br>");
+        document.write("Number of 5 peso coin: "+fivec+"<br>");
+        document.write("Number of 1 peso coin: "+onep+"<br>");
+        document.write("Number of 0.25 peso coin: "+twentyfivec+"<br>");
+        document.write("Number of 0.10 peso coin: "+tenc+"<br>");
+        document.write("Number of 0.05 peso coin: "+fivec+"<br>");
+        document.write("Total amount: "+totalamount.toFixed(2)+"<br>");
+
+        var thousand = Math.floor(totalamount/1000);
+        totalamount = totalamount - (thousand * 1000);
+        var fivehundred = Math.floor(totalamount/500);
+        totalamount = totalamount - (fivehundred * 500);
+        var twoh = Math.floor(totalamount/200);
+        totalamount = totalamount - (twoh * 200);
+        var oneh = Math.floor(totalamount/100);
+        totalamount = totalamount - (oneh * 100);
+        var fifty = Math.floor(totalamount/50);
+        totalamount = totalamount - (fifty * 50);
+        var twenty = Math.floor(totalamount/20);
+        totalamount = totalamount - (twenty * 20);
+        var ten = Math.floor(totalamount/10);
+        totalamount = totalamount - (ten * 10);
+        var five = Math.floor(totalamount/5);
+        totalamount = totalamount - (five * 5);
+        var one = Math.floor(totalamount/1);
+        totalamount = totalamount - (one * 1);
+
+        document.write("<br>"+"Change:"+"<br>");
+        document.write("P1000 bill: " + thousand + "<br>");
+        document.write("P500 bill: " + fivehundred + "<br>");
+        document.write("P200 bill: " + twoh + "<br>");
+        document.write("P100 bill: " + oneh + "<br>");
+        document.write("P50 bill: " + fifty + "<br>");
+        document.write("P20 bill: " + twenty + "<br>");
+        document.write("P10 bill: " + ten + "<br>");
+        document.write("P5 bill: " + five + "<br>");
+        document.write("P1 bill: " + one + "<br>");
+
+
+    </script>
+
+
+</body>
+</html>

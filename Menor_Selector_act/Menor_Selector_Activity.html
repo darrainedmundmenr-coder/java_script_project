@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>jQuery Login Form Activity</title>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial; background: #f0f2f5;
+    display: flex; justify-content: center;
+    align-items: center; min-height: 100vh; }
+    .login-box { background: #fff; border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    padding: 36px; width: 380px; }
+    #form-title { font-size: 22px; color: #1a3a5c; margin-bottom: 6px; }
+    #form-sub { font-size: 13px; color: #888; margin-bottom: 20px; }
+    .field-group { margin-bottom: 16px; }
+    .field-label { display: block; font-size: 13px; color: #555; margin-bottom: 5px; }
+    .form-input { width: 100%; padding: 9px 12px; border: 1px solid #ccc;
+    border-radius: 6px; font-size: 14px; }
+    .action-btn { width: 100%; padding: 11px; border: none;
+    border-radius: 6px; font-size: 15px;
+    font-weight: bold; cursor: pointer; margin-top: 6px; }
+    #login-btn { background: #2e86c1; color: white; }
+    #clear-btn { background: #e5e7eb; color: #333; margin-top: 8px; }
+    #msg-box { margin-top: 14px; padding: 10px 14px;
+    border-radius: 6px; font-size: 14px; display: none; }
+    #hint-box { margin-top: 10px; font-size: 12px; color: #aaa;
+    display: none; }
+    /* ADD YOUR OWN CSS BELOW THIS LINE */
+ </style>
+</head>
+
+<body>
+    <div class="login-box">
+    <h2 id="form-title">Login</h2>
+    <p id="form-sub">Access your account</p>
+    <div class="field-group">
+    <label class="field-label" for="username">Username</label>
+    <input class="form-input" type="text"
+    id="username" placeholder="Enter username" />
+    </div>
+    <div class="field-group">
+    <label class="field-label" for="password">Password</label>
+    <input class="form-input" type="password"
+    id="password" placeholder="Enter password" />
+    </div>
+    <button class="action-btn" id="login-btn">Log In</button>
+    <button class="action-btn" id="clear-btn">Clear Fields</button>
+    <div id="msg-box"></div>
+    <p id="hint-box">Tip: Password should be at least 8 characters.</p>
+    </div>
+    <script>
+     $(document).ready(function() {
+     // ==============================
+     // YOUR JQUERY CODE GOES HERE
+     // Complete Tasks A through E
+
+     //Exercise A
+
+     //1
+        $("#form-title").text("Student Login Portal");
+
+    //2    
+        $("#form-sub").html("Enter your <strong> school credentials </strong>");
+
+    //3    
+        $("#login-btn").click(function(){
+            var username = $("#username").val();
+
+            $("#msg-box").text("Welcome" + " "+ username + "!"); 
+            $('#msg-box').css({
+            'display': 'block',
+            'background-color': '#EAFAF1',
+            'border': '2px solid green',
+            'padding': '10px' 
+        });
+
+
+    //4
+        $('#login-btn').click(function(){
+            if ($('#username').val().trim() === "") {
+                $('#msg-box')
+                .text('Username is required!')
+                .css('background-color', '#FDEDEC')
+                .css('border' , '2px solid red')
+             }
+        })    
+        })
+
+        //Exercise B
+        //5
+        $('.form-input').css('transition', 'border-color 0.3s');
+
+        //6
+        $('#clear-btn').click(function() {
+            $('.form-input').val('');
+        });
+        //7
+        $('.form-input').on('focus', function() {
+            $(this).addClass('active-field');
+                $(this).css({
+            'border': '2px solid #2E86C1'
+            });
+        });
+
+        $('.form-input').on('blur', function() {
+            $(this).removeClass('active-field');
+                $(this).css({
+            'border': ''
+            });
+    });
+
+
+    //Exercise C
+    //8
+    $('label').css({
+        'color': '#2E86C1',
+        'font-weight': 'bold'
+    });
+    //9
+    $('button').on('mouseenter', function() {
+        $(this).css({
+        'opacity': '0.8',
+        'box-shadow': '0 4px 8px rgba(0,0,0,0.2)'
+    });
+    });
+
+    $('button').on('mouseleave', function() {
+        $(this).css({
+        'opacity': '1',
+        'box-shadow': 'none'
+        });
+    });
+
+    //10
+    $('input').on('keyup', function() {
+        $('#hint-box').show();
+    });
+
+    $('input').on('blur', function() {
+        $('#hint-box').hide();
+    });
+
+
+    //Exercise D
+    //11
+    $('.action-btn').click(function() {
+        var originalColor = $(this).css('background-color');
+        var btn = $(this);
+
+    btn.css('background-color', '#1a5c1a');
+
+    setTimeout(function() {
+        btn.css('background-color', originalColor);
+    }, 1000);
+    });
+
+    //12
+    $('.form-input').on('focus', function() {
+        $(this).css('background-color', '#EBF5FB');
+    });
+
+    $('.form-input').on('blur', function() {
+        $(this).css('background-color', 'white');
+    });
+
+    //13
+    $('.form-input').on('keyup', function() {
+        var length = $(this).val().length;
+
+    $('#hint-box').text('Field length: ' + length + ' characters');
+    });
+
+    //Exercise E
+    //1
+    $('#login-btn').click(function() {
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+    if (username !== '' && password !== '') {
+        $('#form-title, #form-sub').css('color', '#27AE60');
+    }
+    });
+
+    //2
+    $('#clear-btn').click(function() {
+        $('.form-input').val('')
+        .add('#msg-box')
+        .add('#hint-box')
+        .hide();
+    });
+
+    //3
+    $(document).keydown(function() {
+        if (event.keyCode === 27) {
+        $('#msg-box, #hint-box').hide();
+    }
+    });
+    });
+
+     
+
+   
+
+
+   
+
+
+
+    
+
+    
+
+ </script>
+</body>
+</html>

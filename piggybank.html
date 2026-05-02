@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var tenP = parseInt(prompt("Enter the amount of p10 coins: "))
+        var fiveP = parseInt(prompt("Enter the amount of p5 coins: "))
+        var onep = parseInt(prompt("Enter the amount of p1 coins: "))
+        var twofivwp = parseInt(prompt("Enter the amount of p0.25 coins: "))
+        var tenc = parseInt(prompt("Enter the amount of p0.10 coins: "))
+        var fivec = parseInt(prompt("Enter the amount of p0.05 coins: "))
+        var totalamount = ((tenP*10) + (fiveP*5) + (onep*1) + (tenc*0.10) + (fivec*0.05))
+        document.write("Piggybank coins : "+"<br>");
+        document.write("Number of P10 coins" +tenP +"<br>")
+        document.write("Number of P5 coins" +fiveP +"<br>")
+        document.write("Number of P1 coins" +onep +"<br>")
+        document.write("Number of P0.25 coins" +twofivwp +"<br>")
+        document.write("Number of P0.10 coins" +tenc +"<br>")
+        document.write("Number of P0.05 coins" +fivec +"<br>")
+
+
+        document.write("Total amount" + totalamount.toFixed(2)+ "<br>")
+
+        var thousand = Math.floor(totalamount/1000);
+        totalamount = totalamount - (thousand * 1000);
+        var fiveh = Math.floor(totalamount/500);
+        totalamount = totalamount - (fiveh * 500);
+        var twoh = Math.floor(totalamount/200);
+        totalamount = totalamount - (twoh * 200);
+        var oneh = Math.floor(totalamount/100);
+        totalamount = totalamount - (oneh * 100);
+        var fiftyp = Math.floor(totalamount/50);
+        totalamount = totalamount - (fiftyp * 50);
+        var twentyp = Math.floor(totalamount/20);
+        totalamount = totalamount - (twentyp * 20);
+        var tenp = Math.floor(totalamount/10);
+        totalamount = totalamount - (tenp * 10);
+        var fivep = Math.floor(totalamount/5);
+        totalamount = totalamount - (fivep * 5);
+        var onep = Math.floor(totalamount/1);
+        totalamount = totalamount - (onep *1 );
+
+
+
+
+        document.write("<h3>Breakdown into Bills and Coins</h3>");
+        document.write("₱1000 bills: " + thousand + "<br>");
+        document.write("₱500 bills: " + fiveh + "<br>");
+        document.write("₱200 bills: " + twoh + "<br>");
+        document.write("₱100 bills: " + oneh + "<br>");
+        document.write("₱50 bills: " + fiftyp + "<br>");
+        document.write("₱20 bills: " + twenty + "<br>");
+        document.write("₱10 coins: " + tenp + "<br>");
+        document.write("₱5 coins: " + fivep + "<br>");
+        document.write("₱1 coins: " + onep + "<br>");
+        
+
+        
+
+    </script>
+</body>
+</html>
